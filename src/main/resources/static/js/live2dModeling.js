@@ -1,10 +1,7 @@
-//멜리사식 코드 사용법 정리
-
 /** 1. 초기 설정 및 모델 로딩 **/
 
 //모델 사용을 위한 경로 설정
-const cubism4Model =
-    "../model/melissa_vts/멜리사3.model3.json";
+const cubism4Model = "../model/melissa_vts/LuciaV.model3.json";
 
 //이번 live2d 는 pixi 의 라이브러리를 사용하도록 한다.
 const live2d = PIXI.live2d;
@@ -19,13 +16,15 @@ const live2d = PIXI.live2d;
     });
 
     // live2d 모델 로딩
+    console.log('모델 로딩 시작');
     const model = await live2d.Live2DModel.from(cubism4Model);
+    console.log('모델 로딩 완료');
 
-    //로드된 모델을 pixi 스테이지에 추가하여 렌더링 싲가
+    //로드된 모델을 pixi 스테이지에 추가하여 렌더링 시작
     app.stage.addChild(model);
+    console.log('모델이 스테이지에 추가됨');
 
-
-/** 2. 모델의 크기 조정 및 위치 설정 **/
+    /** 2. 모델의 크기 조정 및 위치 설정 **/
 
     /* 창 크기에 모델 맞추기 위한 스케일 비율 계산 */
     const scaleX = (innerWidth * 0.4) / model.width; // 모델을 창 너비의 (innerWidth * 0.4) / model.width; (40%) 정도로 맞춘다.
@@ -34,9 +33,11 @@ const live2d = PIXI.live2d;
     // 두 스케일 비율 중 작은 값을 사용하여 모델의 크기를 설정
     // 이거 종횡비 유지용이래.
     model.scale.set(Math.min(scaleX, scaleY));
+    console.log('모델 크기 조정 완료');
 
     //모델을 창 높이의 innerHeight * 0.1; (10%)위치에 배치
     model.y = innerHeight * 0.1;
+    console.log('모델 위치 조정 완료');
 
     /* 함수 이동 */
     draggable(model); //드래그 함수
@@ -44,12 +45,13 @@ const live2d = PIXI.live2d;
     addHitAreaFrames(model); // 모델에 히트 영역 추가하는 함수
 
     model.x = (innerWidth - model.width) / 2; //모델을 창 중앙에 가로로 배치
+    console.log('모델 배치 완료');
 
-
-/** 3. 모델 클릭(탭) 처리 **/
+    /** 3. 모델 클릭(탭) 처리 **/
 
     /* 모델의 히트 부분에 대한 처리 영역 */
     model.on("hit", (hitAreas) => {
+        console.log('히트 감지:', hitAreas);
         if (hitAreas.includes("Body")) {
             model.motion("Tap");
         } // Body 영역 클릭 시 Tap 모션을 실행하도록 한다.
@@ -111,6 +113,7 @@ function addHitAreaFrames(model) {
     const hitAreaFrames = new live2d.HitAreaFrames(); // 모델에 대한 히트  영역 프레임 생성
 
     model.addChild(hitAreaFrames); // 히트 영역 프레임을 모델의 자식으로 추가
+    console.log('히트 영역 프레임 추가 완료');
 
     checkbox("터치 영역 확인하기", (checked) => (hitAreaFrames.visible = checked)); // 터치 영역을 보여줄 수 있는 체크박스를 추가하도록 한다.
 }

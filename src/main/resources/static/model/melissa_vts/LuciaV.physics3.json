@@ -19,199 +19,199 @@
 		"PhysicsDictionary": [
 			{
 				"Id": "PhysicsSetting1",
-				"Name": "각도x물리"
+				"Name": "AngleXPhysics"
 			},
 			{
 				"Id": "PhysicsSetting2",
-				"Name": "각도y물리"
+				"Name": "AngleYPhysics"
 			},
 			{
 				"Id": "PhysicsSetting3",
-				"Name": "몸x 물리"
+				"Name": "BodyXPhysics"
 			},
 			{
 				"Id": "PhysicsSetting4",
-				"Name": "몸y 물리"
+				"Name": "BodyYPhysics"
 			},
 			{
 				"Id": "PhysicsSetting5",
-				"Name": "가슴x"
+				"Name": "ChestX"
 			},
 			{
 				"Id": "PhysicsSetting6",
-				"Name": "속눈썹"
+				"Name": "Eyelash"
 			},
 			{
 				"Id": "PhysicsSetting7",
-				"Name": "왼쪽 속눈썹"
+				"Name": "LeftEyelash"
 			},
 			{
 				"Id": "PhysicsSetting8",
-				"Name": "왼쪽 속눈썹(2)"
+				"Name": "LeftEyelash2"
 			},
 			{
 				"Id": "PhysicsSetting9",
-				"Name": "오른쪽 속눈썹"
+				"Name": "RightEyelash"
 			},
 			{
 				"Id": "PhysicsSetting10",
-				"Name": "오른쪽 속눈썹(2)"
+				"Name": "RightEyelash2"
 			},
 			{
 				"Id": "PhysicsSetting11",
-				"Name": "가슴y"
+				"Name": "ChestY"
 			},
 			{
 				"Id": "PhysicsSetting12",
-				"Name": "팔 오른쪽"
+				"Name": "RightArm"
 			},
 			{
 				"Id": "PhysicsSetting13",
-				"Name": "치마 y"
+				"Name": "SkirtY"
 			},
 			{
 				"Id": "PhysicsSetting14",
-				"Name": "치마 x"
+				"Name": "SkirtX"
 			},
 			{
 				"Id": "PhysicsSetting15",
-				"Name": "허벅지 흔들림 x"
+				"Name": "ThighShakeX"
 			},
 			{
 				"Id": "PhysicsSetting16",
-				"Name": "치마 프릴 흔들림"
+				"Name": "SkirtFrillShake"
 			},
 			{
 				"Id": "PhysicsSetting17",
-				"Name": "프릴 오른쪽 흔들림"
+				"Name": "FrillRightShake"
 			},
 			{
 				"Id": "PhysicsSetting18",
-				"Name": "머리카락 오른쪽1"
+				"Name": "HairRight1"
 			},
 			{
 				"Id": "PhysicsSetting19",
-				"Name": "머리카락 왼쪽1"
+				"Name": "HairLeft1"
 			},
 			{
 				"Id": "PhysicsSetting20",
-				"Name": "머리카락 왼쪽2"
+				"Name": "HairLeft2"
 			},
 			{
 				"Id": "PhysicsSetting21",
-				"Name": "머리카락 중앙"
+				"Name": "HairCenter"
 			},
 			{
 				"Id": "PhysicsSetting22",
-				"Name": "머리카락 중앙2"
+				"Name": "HairCenter2"
 			},
 			{
 				"Id": "PhysicsSetting23",
-				"Name": "머리카락 중앙3"
+				"Name": "HairCenter3"
 			},
 			{
 				"Id": "PhysicsSetting24",
-				"Name": "머리카락 오른쪽 2"
+				"Name": "HairRight2"
 			},
 			{
 				"Id": "PhysicsSetting25",
-				"Name": "뒷머리 중앙"
+				"Name": "BackHairCenter"
 			},
 			{
 				"Id": "PhysicsSetting26",
-				"Name": "뒷머리 중앙y"
+				"Name": "BackHairCenterY"
 			},
 			{
 				"Id": "PhysicsSetting27",
-				"Name": "프릴"
+				"Name": "Frill"
 			},
 			{
 				"Id": "PhysicsSetting28",
-				"Name": "몸z 물리"
+				"Name": "BodyZPhysics"
 			},
 			{
 				"Id": "PhysicsSetting29",
-				"Name": "머리z물리"
+				"Name": "HeadZPhysics"
 			},
 			{
 				"Id": "PhysicsSetting30",
-				"Name": "눈동자 왼쪽 뽀잉뽀잉"
+				"Name": "LeftPupilBoingBoing"
 			},
 			{
 				"Id": "PhysicsSetting31",
-				"Name": "눈동자 오른쪽 뽀잉뽀잉"
+				"Name": "RightPupilBoingBoing"
 			},
 			{
 				"Id": "PhysicsSetting32",
-				"Name": "홍채 오른쪽 뽀잉뽀잉"
+				"Name": "RightIrisBoingBoing"
 			},
 			{
 				"Id": "PhysicsSetting33",
-				"Name": "홍채 왼쪽 뽀잉뽀잉"
+				"Name": "LeftIrisBoingBoing"
 			},
 			{
 				"Id": "PhysicsSetting34",
-				"Name": "눈 하이라이트 오른쪽1 물리"
+				"Name": "RightEyeHighlight1Physics"
 			},
 			{
 				"Id": "PhysicsSetting35",
-				"Name": "눈 하이라이트 왼쪽1 물리"
+				"Name": "LeftEyeHighlight1Physics"
 			},
 			{
 				"Id": "PhysicsSetting36",
-				"Name": "눈 하이라이트 오른쪽 4 물리"
+				"Name": "RightEyeHighlight4Physics"
 			},
 			{
 				"Id": "PhysicsSetting37",
-				"Name": "눈 하이라이트 왼쪽 4 물리"
+				"Name": "LeftEyeHighlight4Physics"
 			},
 			{
 				"Id": "PhysicsSetting38",
-				"Name": "눈 하이라이트 오른쪽 3 물리"
+				"Name": "RightEyeHighlight3Physics"
 			},
 			{
 				"Id": "PhysicsSetting39",
-				"Name": "눈 하이라이트 왼쪽 3 물리"
+				"Name": "LeftEyeHighlight3Physics"
 			},
 			{
 				"Id": "PhysicsSetting40",
-				"Name": "오른쪽 이펙트"
+				"Name": "RightEffect"
 			},
 			{
 				"Id": "PhysicsSetting41",
-				"Name": "리본 헤드 y"
+				"Name": "RibbonHeadY"
 			},
 			{
 				"Id": "PhysicsSetting42",
-				"Name": "리본 다리y"
+				"Name": "RibbonLegY"
 			},
 			{
 				"Id": "PhysicsSetting43",
-				"Name": "리본 다리x"
+				"Name": "RibbonLegX"
 			},
 			{
 				"Id": "PhysicsSetting44",
-				"Name": "뒷머리 가장옆쪽 왼쪽2"
+				"Name": "BackHairSideLeft2"
 			},
 			{
 				"Id": "PhysicsSetting45",
-				"Name": "뒷머리 가장옆쪽 오른쪽2"
+				"Name": "BackHairSideRight2"
 			},
 			{
 				"Id": "PhysicsSetting46",
-				"Name": "오른팔 물리"
+				"Name": "RightArmPhysics"
 			},
 			{
 				"Id": "PhysicsSetting47",
-				"Name": "왼팔 물리"
+				"Name": "LeftArmPhysics"
 			},
 			{
 				"Id": "PhysicsSetting48",
-				"Name": "뒷머리 오른쪽"
+				"Name": "BackHairRight"
 			},
 			{
 				"Id": "PhysicsSetting49",
-				"Name": "뒷머리 왼쪽"
+				"Name": "BackHairLeft"
 			}
 		]
 	},

@@ -1,12 +1,12 @@
 {
 	"Version": 3,
 	"FileReferences": {
-		"Moc": "멜리사3.moc3",
+		"Moc": "LuciaV.moc3",
 		"Textures": [
-			"멜리사3.8192/texture_00.png"
+			"LuciaV.8192/texture_00.png"
 		],
-		"Physics": "멜리사3.physics3.json",
-		"DisplayInfo": "멜리사3.cdi3.json"
+		"Physics": "LuciaV.physics3.json",
+		"DisplayInfo": "LuciaV.cdi3.json"
 	},
 	"Groups": [
 		{

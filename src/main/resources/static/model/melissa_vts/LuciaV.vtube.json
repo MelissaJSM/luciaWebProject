@@ -1,10 +1,10 @@
 {
     "Version": 1,
-    "Name": "멜리사3",
+    "Name": "LuciaV",
     "ModelID": "1389027dcf374a8f9ee8399b1ee9f1f4",
     "FileReferences": {
         "Icon": "",
-        "Model": "멜리사3.model3.json",
+        "Model": "LuciaV.model3.json",
         "IdleAnimation": "",
         "IdleAnimationWhenTrackingLost": ""
     },
@@ -424,9 +424,9 @@
     "Hotkeys": [
         {
             "HotkeyID": "92a7c6752b5e4b55b2da9a88f815200b",
-            "Name": "해킹",
+            "Name": "loading",
             "Action": "ChangeIdleAnimation",
-            "File": "해킹중.motion3.json",
+            "File": "loading.motion3.json",
             "Folder": "",
             "Position": {
                 "X": 0.0,
@@ -493,9 +493,9 @@
         },
         {
             "HotkeyID": "532ea1b359a54cb8b1e76ade83d17cbc",
-            "Name": "삐침",
+            "Name": "despise",
             "Action": "ToggleExpression",
-            "File": "경멸.exp3.json",
+            "File": "despise.exp3.json",
             "Folder": "",
             "Position": {
                 "X": 0.0,
@@ -562,7 +562,7 @@
         },
         {
             "HotkeyID": "8c39724e818f4271ad5780b3496ee4f4",
-            "Name": "기본",
+            "Name": "normal",
             "Action": "ChangeIdleAnimation",
             "File": "",
             "Folder": "",
@@ -631,9 +631,9 @@
         },
         {
             "HotkeyID": "26bb8f33290941febcdcd2be2251fa68",
-            "Name": "하트눈",
+            "Name": "heartEye",
             "Action": "ToggleExpression",
-            "File": "하트눈.exp3.json",
+            "File": "heartEye.exp3.json",
             "Folder": "",
             "Position": {
                 "X": 0.0,
@@ -700,9 +700,9 @@
         },
         {
             "HotkeyID": "1ca697855dce4aaba5f643357980ad4c",
-            "Name": "빠직",
+            "Name": "angry",
             "Action": "ToggleExpression",
-            "File": "빠직.exp3.json",
+            "File": "angry.exp3.json",
             "Folder": "",
             "Position": {
                 "X": 0.0,
