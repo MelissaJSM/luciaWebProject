@@ -1,0 +1,48 @@
+#TextLine{
+    position: absolute;
+    display: flex;
+    width: 50%;
+    height: 5%;
+    z-index: 10;
+    bottom: 10%;
+    left: 55%;
+    transform: translateX(-55%);
+}
+#inputText{
+    position: relative;
+    width: 80%;
+    font-size: 30px;
+    padding-left: 20px;
+    border: 1px solid white;
+    border-radius: 10px; /* 테두리 모서리 둥글게 */
+}
+#sendButton{
+    width: 20%;
+    padding: 10px 20px; /* 버튼의 패딩 */
+    font-size: 1.5em; /* 텍스트 크기 */
+    align-items: center;
+    justify-items: center;
+    font-family: Arial, sans-serif; /* 폰트 */
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 5px; /* 둥근 모서리 */
+    cursor: pointer; /* 커서 스타일 */
+    background-color: #4CAF50; /* 버튼 배경 색상 */
+    color: white; /* 텍스트 색상 */
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+
+
+}
+#sendButton:hover {
+    background-color: #45a049; /* 호버 시 배경 색상 변경 */
+}
+footer{
+    position: absolute;
+    bottom: 0%;
+    margin-left: 1%;
+}
+footer p{
+    font-size: 1.7em;
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke: 1px black; /* WebKit 기반 브라우저용 테두리 */
+}

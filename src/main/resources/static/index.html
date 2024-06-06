@@ -8,21 +8,58 @@
     <script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.2/dist/browser/pixi.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/extra.min.js"></script>
-
-    <canvas id=canvas></canvas>
-
-    <div id="control"></div>
-    <!--캔버스 보다 밑에있어야 동작한다. 실수좀 하지마라임마-->
-    <script src="js/live2dModeling.js"></script>
     <link rel="stylesheet" type="text/css" href="css/live2dStyle.css">
-
-    <script>
-
-    </script>
-
+    <link rel="stylesheet" type="text/css" href="css/Ui.css">
+    <link rel="stylesheet" type="text/css" href="css/debug.css">
 
 </head>
 <body>
-<h1 id=title>냐하로 월드</h1>
+
+<header>
+    <nav>
+        <!--리스트를 넣으세요-->
+
+    </nav>
+</header>
+
+
+<main>
+    <section>
+        <!--메인 제목 넣는 부분-->
+        <h1 id=title>디버그 활성화</h1>
+    </section>
+
+    <article>
+        <!--메인 컨텐츠 넣는 부분-->
+        <!-- live2d 그리는 영역 -->
+        <canvas id=canvas></canvas>
+        <!--캔버스 보다 밑에있어야 동작한다. 실수좀 하지마라임마-->
+        <script src="js/live2dModeling.js"></script>
+
+
+
+        <!-- 헤드터치 -->
+        <div id="headTouch"></div>
+
+    </article>
+
+    <aside>
+        <!--보조 기능 넣는 부분-->
+        <!--여기에다가 채팅기능이라던기 기능을 넣으면 좋지.-->
+        <!-- 체크박스 영역-->
+        <div id="TextLine">
+            <input type="text" id="inputText" placeholder="질문을 입력하세요"></input>
+            <button id="sendButton">전송</button>
+        </div>
+
+        <div id="control"></div>
+    </aside>
+</main>
+
+<footer>
+    <p>이 브라우저는 16:9 비율에 최적화 되어있습니다.</p>
+    <p>저작권 © 2024 웹사이트 이름. 모든 권리 보유.</p>
+</footer>
+
 </body>
 </html>
