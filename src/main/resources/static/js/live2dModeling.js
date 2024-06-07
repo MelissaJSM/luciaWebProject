@@ -99,7 +99,7 @@ function addHitAreaFrames(model, app) {
     model.addChild(hitAreaFrames); // 히트 영역 프레임을 모델의 자식으로 추가
 
     checkbox("터치 영역 확인하기(live2d 버전에 따라서 동작이 안 될 수도 있음.)", (checked) => {
-
+        //첫 로드 시키고 다음작업할때는 add리스너를 추가 안하는 방식인데....
         touchLineCreateHead(model, app, 0.506, 0.253, 120, 0xFF0000, checked); // 머리
         touchLineCreateBody(model, app, 0.506, 0.42, 170, 190, 0x000cff, checked); // 상체
         touchLineCreateBody(model, app, 0.506, 0.6, 350, 270, 0x24ff00, checked); // 하체
