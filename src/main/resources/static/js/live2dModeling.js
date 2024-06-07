@@ -42,97 +42,14 @@ const live2d = PIXI.live2d;
     /* 함수 이동 */
     //draggable(model); // 드래그 함수
     addFrame(model); // 모델 주위에 프레임 추가하는 함수
-    addHitAreaFrames(model,app); // 모델에 히트 영역 추가하는 함수
+    addHitAreaFrames(model, app); // 모델에 히트 영역 추가하는 함수
 
     model.x = (innerWidth - model.width) / 2; // 모델을 창 중앙에 가로로 배치
-
-    /** 3. 모델 클릭(탭) 처리 **/
-
-    /* 모델의 히트 부분에 대한 처리 영역 */
-    // model.on("hit", (hitAreas) => {
-    //     if (hitAreas.includes("Body")) {
-    //         model.motion("Tap");
-    //     } // Body 영역 클릭 시 Tap 모션을 실행하도록 한다.
-    //
-    //     if (hitAreas.includes("Head")) {
-    //         model.expression();
-    //     } // Head 영역이 클릭되면 표정을 변경하도록 한다.
-    // });
-
-    /** 특정 위치를 터치하면 동작 실행 (원) **/
-
-    //     // 터치 영역 시각화
-    // const targetX = app.screen.width / 2; // 화면의 중앙 X 좌표
-    // const targetY = app.screen.height / 2; // 화면의 중앙 Y 좌표
-    // const radius = 500; // 반경 설정
-    // const touchArea = new PIXI.Graphics();
-    // touchArea.beginFill(0xFF0000, 0.5); // 반투명 붉은색으로 설정
-    // touchArea.drawCircle(targetX, targetY, radius);
-    // touchArea.endFill();
-    // app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
-    //
-    // app.view.addEventListener('click', (event) => {
-    //     const rect = app.view.getBoundingClientRect();
-    //     const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
-    //     const y = ((event.clientY - rect.top) / rect.height) * app.screen.height;
-    //
-    //     console.log(`Clicked at: x=${x}, y=${y}`); // 클릭한 위치의 좌표를 콘솔에 출력
-    //
-    //     // 터치한 위치가 특정 영역 내에 있는지 확인
-    //     if (Math.hypot(x - targetX, y - targetY) <= radius) {
-    //         console.log("터치 성공"); // 터치 성공 로그 추가
-    //         console.log("Tap 재생");
-    //         // 기본 애니메이션 재생
-    //         model.motion("Taps");
-    //     } else {
-    //         console.log("터치 실패"); // 터치 실패 로그 추가
-    //     }
-    // });
-
-    // /** 특정 위치를 터치하면 동작 실행 (사각형) **/
-    //
-    //     // 터치 영역 시각화
-    // const targetX = app.screen.width / 2; // 화면의 중앙 X 좌표
-    // const targetY = app.screen.height / 2; // 화면의 중앙 Y 좌표
-    // const rectWidth = 400; // 사각형의 너비
-    // const rectHeight = 300; // 사각형의 높이
-    // const touchArea = new PIXI.Graphics();
-    // touchArea.beginFill(0xFF0000, 0.5); // 반투명 붉은색으로 설정
-    // touchArea.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
-    // touchArea.endFill();
-    // app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
-    //
-    // app.view.addEventListener('click', (event) => {
-    //     const rect = app.view.getBoundingClientRect();
-    //     const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
-    //     const y = ((event.clientY - rect.top) / rect.height) * app.screen.height;
-    //
-    //     console.log(`Clicked at: x=${x}, y=${y}`); // 클릭한 위치의 좌표를 콘솔에 출력
-    //
-    //     // 터치한 위치가 특정 사각형 영역 내에 있는지 확인
-    //     if (x >= targetX - rectWidth / 2 && x <= targetX + rectWidth / 2 &&
-    //         y >= targetY - rectHeight / 2 && y <= targetY + rectHeight / 2) {
-    //         console.log("터치 성공"); // 터치 성공 로그 추가
-    //         console.log("Tap 재생");
-    //         // 기본 애니메이션 재생
-    //         model.motion("Taps");
-    //     } else {
-    //         console.log("터치 실패"); // 터치 실패 로그 추가
-    //     }
-    // });
-
-    //지금 이걸 바로 쓸 이유가없이 체크박스에서 구현시키면 되지않나?
-    /*
-    headTouch(model, app, true); // 머리 터치 영역
-    upBodyTouch(model, app, true);
-    downBodyTouch(model, app, true);
-     */
-
 
 
 })();
 
-/** 4. 드래그 **/
+/** 3. 드래그 **/
 
 /* 드래그 함수 */
 function draggable(model) {
@@ -159,7 +76,7 @@ function draggable(model) {
     model.on("pointerup", () => (model.dragging = false));
 }
 
-/** 5. 모델에 프레임 추가 **/
+/** 4. 모델에 프레임 추가 **/
 
 /* 프레임 추가 함수 */
 function addFrame(model) {
@@ -173,7 +90,7 @@ function addFrame(model) {
     checkbox("모델 프레임 확인하기", (checked) => (foreground.visible = checked)); // 프레임을 보여줄 수 있는 체크박스를 추가하도록 한다.
 }
 
-/** 6. 히트 영역 프레임 추가 **/
+/** 5. 히트 영역 프레임 추가 **/
 
 /* 히트 영역 추가 함수 */
 function addHitAreaFrames(model, app) {
@@ -182,16 +99,17 @@ function addHitAreaFrames(model, app) {
     model.addChild(hitAreaFrames); // 히트 영역 프레임을 모델의 자식으로 추가
 
     checkbox("터치 영역 확인하기(live2d 버전에 따라서 동작이 안 될 수도 있음.)", (checked) => {
-            headTouch(model, app, checked);
-            upBodyTouch(model, app, checked);
-            downBodyTouch(model, app, checked);
+
+        touchLineCreateHead(model, app, 0.506, 0.253, 120, 0xFF0000, checked); // 머리
+        touchLineCreateBody(model, app, 0.506, 0.42, 170, 190, 0x000cff, checked); // 상체
+        touchLineCreateBody(model, app, 0.506, 0.6, 350, 270, 0x24ff00, checked); // 하체
 
 
 
     });// 터치 영역을 보여줄 수 있는 체크박스를 추가하도록 한다. 이거 checked 처리안하면 짙어진다.
 }
 
-/** 7. 체크박스 추가 **/
+/** 6. 체크박스 추가 **/
 
 /* 체크박스 추가 함수 */
 function checkbox(name, onChange) {
@@ -217,15 +135,15 @@ function checkbox(name, onChange) {
     onChange(checkbox.checked);
 }
 
-function headTouch(model, app, visibility){
-    /** 머리 위치는 원으로 처리하도록 한다. **/
+function touchLineCreateHead(model, app, widthPart, heightPart, radiusArea, areaColor, visibility) {
+    //모델, 앱, x좌표, y좌표, 범위, 체크상태.
 
-        // 터치 영역 시각화
-    const targetX = app.screen.width * 0.506; // 화면의 중앙 X 좌표
-    const targetY = app.screen.height * 0.253; // 화면의 중앙 Y 좌표
-    const radius = 120; // 반경 설정
+    /* 머리 위치는 원으로 처리하도록 한다. */
+    const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
+    const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
+    const radius = radiusArea; // 반경 설정
     const touchArea = new PIXI.Graphics();
-    touchArea.beginFill(0xFF0000, 0.5); // 반투명 붉은색으로 설정
+    touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
     touchArea.drawCircle(targetX, targetY, radius);
     touchArea.endFill();
     app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
@@ -239,26 +157,26 @@ function headTouch(model, app, visibility){
 
         // 터치한 위치가 특정 영역 내에 있는지 확인
         if (Math.hypot(x - targetX, y - targetY) <= radius) {
-            console.log("터치 성공"); // 터치 성공 로그 추가
-            console.log("Tap 재생");
+            console.log("머리 터치 성공"); // 터치 성공 로그 추가
             // 기본 애니메이션 재생
             model.expression();
         } else {
-            console.log("터치 실패"); // 터치 실패 로그 추가
+            console.log("머리 터치 실패"); // 터치 실패 로그 추가
         }
     });
 }
 
-function upBodyTouch(model, app, visibility){
-    /** 상체는 사각형으로 처리하도록 한다. **/
 
-        // 터치 영역 시각화
-    const targetX = app.screen.width * 0.506; // 화면의 중앙 X 좌표
-    const targetY = app.screen.height * 0.42; // 화면의 중앙 Y 좌표
-    const rectWidth = 170; // 사각형의 너비
-    const rectHeight = 190; // 사각형의 높이
+function touchLineCreateBody(model, app, widthPart, heightPart, widthArea, heightArea, areaColor, visibility) {
+    //모델, 앱 체크상태, x좌표, y좌표, ,x범위, y범위
+
+    /* 상체는 사각형으로 처리하도록 한다. */
+    const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
+    const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
+    const rectWidth = widthArea; // 사각형의 너비
+    const rectHeight = heightArea; // 사각형의 높이
     const touchArea = new PIXI.Graphics();
-    touchArea.beginFill(0x000cff, 0.5); // 반투명 붉은색으로 설정
+    touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
     touchArea.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
     touchArea.endFill();
     app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
@@ -273,49 +191,14 @@ function upBodyTouch(model, app, visibility){
         // 터치한 위치가 특정 사각형 영역 내에 있는지 확인
         if (x >= targetX - rectWidth / 2 && x <= targetX + rectWidth / 2 &&
             y >= targetY - rectHeight / 2 && y <= targetY + rectHeight / 2) {
-            console.log("터치 성공"); // 터치 성공 로그 추가
-            console.log("Tap 재생");
+            console.log("바디 터치 성공"); // 터치 성공 로그 추가
             // 기본 애니메이션 재생
             model.motion("Taps");
         } else {
-            console.log("터치 실패"); // 터치 실패 로그 추가
+            console.log("바디 터치 실패"); // 터치 실패 로그 추가
         }
     });
 }
 
-function downBodyTouch(model, app, visibility){
 
-    /** 하체는 사각형으로 처리하도록 한다. **/
-
-
-        // 터치 영역 시각화
-    const targetX = app.screen.width * 0.506; // 화면의 중앙 X 좌표
-    const targetY = app.screen.height * 0.6; // 화면의 중앙 Y 좌표
-    const rectWidth = 350; // 사각형의 너비
-    const rectHeight = 270; // 사각형의 높이
-    const touchArea = new PIXI.Graphics();
-    touchArea.beginFill(0x24ff00, 0.5); // 반투명 붉은색으로 설정
-    touchArea.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
-    touchArea.endFill();
-    app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
-
-    app.view.addEventListener('click', (event) => {
-        const rect = app.view.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
-        const y = ((event.clientY - rect.top) / rect.height) * app.screen.height;
-
-        console.log(`Clicked at: x=${x}, y=${y}`); // 클릭한 위치의 좌표를 콘솔에 출력
-
-        // 터치한 위치가 특정 사각형 영역 내에 있는지 확인
-        if (x >= targetX - rectWidth / 2 && x <= targetX + rectWidth / 2 &&
-            y >= targetY - rectHeight / 2 && y <= targetY + rectHeight / 2) {
-            console.log("터치 성공"); // 터치 성공 로그 추가
-            console.log("Tap 재생");
-            // 기본 애니메이션 재생
-            model.motion("Taps");
-        } else {
-            console.log("터치 실패"); // 터치 실패 로그 추가
-        }
-    });
-}
 
