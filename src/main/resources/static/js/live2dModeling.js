@@ -134,71 +134,79 @@ function checkbox(name, onChange) {
     // 얘는 왜 만들었지?
     onChange(checkbox.checked);
 }
+//이벤트를 분리해서 구별해서 정지동작 시킬 수 있도록 하였다.
+function handleTouchEvent(event, app, targetX, targetY, radius, rectWidth, rectHeight, model, touchType) {
+    const rect = app.view.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
+    const y = ((event.clientY - rect.top) / rect.height) * app.screen.height;
+
+    console.log(`Clicked at: x=${x}, y=${y}`); // 클릭한 위치의 좌표를 콘솔에 출력
+
+    if (touchType === 'head') {
+        // 터치한 위치가 원 영역 내에 있는지 확인
+        if (Math.hypot(x - targetX, y - targetY) <= radius) {
+            console.log("머리 터치 성공"); // 터치 성공 로그 추가
+            model.expression(); // 기본 애니메이션 재생
+        } else {
+            console.log("머리 터치 실패"); // 터치 실패 로그 추가
+        }
+    } else if (touchType === 'body') {
+        // 터치한 위치가 사각형 영역 내에 있는지 확인
+        if (x >= targetX - rectWidth / 2 && x <= targetX + rectWidth / 2 &&
+            y >= targetY - rectHeight / 2 && y <= targetY + rectHeight / 2) {
+            console.log("바디 터치 성공"); // 터치 성공 로그 추가
+            model.motion("Taps"); // 기본 애니메이션 재생
+        } else {
+            console.log("바디 터치 실패"); // 터치 실패 로그 추가
+        }
+    }
+}
 
 function touchLineCreateHead(model, app, widthPart, heightPart, radiusArea, areaColor, visibility) {
-    //모델, 앱, x좌표, y좌표, 범위, 체크상태.
-
-    /* 머리 위치는 원으로 처리하도록 한다. */
     const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
     const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
     const radius = radiusArea; // 반경 설정
     const touchArea = new PIXI.Graphics();
-    touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    if(visibility===true){
+        touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    }
+    else{
+        touchArea.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+    }
+
     touchArea.drawCircle(targetX, targetY, radius);
     touchArea.endFill();
     app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
 
-    app.view.addEventListener('click', (event) => {
-        const rect = app.view.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
-        const y = ((event.clientY - rect.top) / rect.height) * app.screen.height;
+    const handleClick = (event) => handleTouchEvent(event, app, targetX, targetY, radius, null, null, model, 'head');
 
-        console.log(`Clicked at: x=${x}, y=${y}`); // 클릭한 위치의 좌표를 콘솔에 출력
-
-        // 터치한 위치가 특정 영역 내에 있는지 확인
-        if (Math.hypot(x - targetX, y - targetY) <= radius) {
-            console.log("머리 터치 성공"); // 터치 성공 로그 추가
-            // 기본 애니메이션 재생
-            model.expression();
-        } else {
-            console.log("머리 터치 실패"); // 터치 실패 로그 추가
-        }
-    });
+    // 기존 이벤트 리스너 제거
+    app.view.removeEventListener('click', handleClick);
+    // 새 이벤트 리스너 추가
+    app.view.addEventListener('click', handleClick);
 }
 
-
 function touchLineCreateBody(model, app, widthPart, heightPart, widthArea, heightArea, areaColor, visibility) {
-    //모델, 앱 체크상태, x좌표, y좌표, ,x범위, y범위
-
-    /* 상체는 사각형으로 처리하도록 한다. */
     const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
     const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
     const rectWidth = widthArea; // 사각형의 너비
     const rectHeight = heightArea; // 사각형의 높이
     const touchArea = new PIXI.Graphics();
-    touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    if(visibility===true){
+        touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    }
+    else{
+        touchArea.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+    }
+
     touchArea.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
     touchArea.endFill();
     app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
 
-    app.view.addEventListener('click', (event) => {
-        const rect = app.view.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
-        const y = ((event.clientY - rect.top) / rect.height) * app.screen.height;
+    const handleClick = (event) => handleTouchEvent(event, app, targetX, targetY, null, rectWidth, rectHeight, model, 'body');
 
-        console.log(`Clicked at: x=${x}, y=${y}`); // 클릭한 위치의 좌표를 콘솔에 출력
-
-        // 터치한 위치가 특정 사각형 영역 내에 있는지 확인
-        if (x >= targetX - rectWidth / 2 && x <= targetX + rectWidth / 2 &&
-            y >= targetY - rectHeight / 2 && y <= targetY + rectHeight / 2) {
-            console.log("바디 터치 성공"); // 터치 성공 로그 추가
-            // 기본 애니메이션 재생
-            model.motion("Taps");
-        } else {
-            console.log("바디 터치 실패"); // 터치 실패 로그 추가
-        }
-    });
+    // 기존 이벤트 리스너 제거
+    app.view.removeEventListener('click', handleClick);
+    // 새 이벤트 리스너 추가
+    app.view.addEventListener('click', handleClick);
 }
-
-
-
