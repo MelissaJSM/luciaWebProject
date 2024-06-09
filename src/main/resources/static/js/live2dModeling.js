@@ -6,10 +6,14 @@ const cubism4Model = "../model/melissa_vts/멜리사3.model3.json";
 // 이번 live2d 는 pixi 의 라이브러리를 사용하도록 한다.
 const live2d = PIXI.live2d;
 
+let app;
+
+let model;
+
 
 /* 메인 어플리케이션을 초기화 하고 실행하는 부분 */
 (async function main() {
-    const app = new PIXI.Application({
+    app = new PIXI.Application({
         view: document.getElementById("canvas"), // canvas 로 연결된 view 설정
         autoStart: true, // 렌더링 루프를 자동으로 실행
         resizeTo: window, // 윈도우에 화면을 맞추도록 한다.
@@ -22,7 +26,7 @@ const live2d = PIXI.live2d;
     app.stage.addChild(background); // 배경 이미지를 스테이지에 추가
 
     // live2d 모델 로딩
-    const model = await live2d.Live2DModel.from(cubism4Model);
+    model = await live2d.Live2DModel.from(cubism4Model);
 
     // 로드된 모델을 pixi 스테이지에 추가하여 렌더링 시작
     app.stage.addChild(model);
