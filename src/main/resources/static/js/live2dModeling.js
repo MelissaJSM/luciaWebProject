@@ -101,8 +101,8 @@ function addHitAreaFrames(model, app) {
     checkbox("터치 영역 확인하기(live2d 버전에 따라서 동작이 안 될 수도 있음.)", (checked) => {
         //첫 로드 시키고 다음작업할때는 add리스너를 추가 안하는 방식인데....
         touchLineCreateHead(model, app, 0.506, 0.253, 120, 0xFF0000, checked); // 머리
-        touchLineCreateBody(model, app, 0.506, 0.42, 170, 190, 0x000cff, checked); // 상체
-        touchLineCreateBody(model, app, 0.506, 0.6, 350, 270, 0x24ff00, checked); // 하체
+        touchLineCreateBodyUp(model, app, 0.506, 0.42, 170, 190, 0x000cff, checked); // 상체
+        touchLineCreateBodyDown(model, app, 0.506, 0.6, 350, 270, 0x24ff00, checked); // 하체
 
 
 
@@ -135,6 +135,7 @@ function checkbox(name, onChange) {
     onChange(checkbox.checked);
 }
 //이벤트를 분리해서 구별해서 정지동작 시킬 수 있도록 하였다.
+// 이벤트를 분리해서 구별해서 정지동작 시킬 수 있도록 하였다.
 function handleTouchEvent(event, app, targetX, targetY, radius, rectWidth, rectHeight, model, touchType) {
     const rect = app.view.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width) * app.screen.width;
@@ -162,21 +163,31 @@ function handleTouchEvent(event, app, targetX, targetY, radius, rectWidth, rectH
     }
 }
 
+// 터치 영역을 저장할 변수
+let touchAreaHead, touchAreaBodyUp, touchAreaBodyDown;
+
+// 터치 라인 생성 함수 수정
 function touchLineCreateHead(model, app, widthPart, heightPart, radiusArea, areaColor, visibility) {
     const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
     const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
     const radius = radiusArea; // 반경 설정
-    const touchArea = new PIXI.Graphics();
-    if(visibility===true){
-        touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
-    }
-    else{
-        touchArea.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+
+    // 기존 영역 제거
+    if (touchAreaHead) {
+        app.stage.removeChild(touchAreaHead);
+        touchAreaHead.destroy();
     }
 
-    touchArea.drawCircle(targetX, targetY, radius);
-    touchArea.endFill();
-    app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
+    touchAreaHead = new PIXI.Graphics();
+    if (visibility === true) {
+        touchAreaHead.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    } else {
+        touchAreaHead.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+    }
+
+    touchAreaHead.drawCircle(targetX, targetY, radius);
+    touchAreaHead.endFill();
+    app.stage.addChild(touchAreaHead); // 터치 영역을 스테이지에 추가
 
     const handleClick = (event) => handleTouchEvent(event, app, targetX, targetY, radius, null, null, model, 'head');
 
@@ -186,22 +197,28 @@ function touchLineCreateHead(model, app, widthPart, heightPart, radiusArea, area
     app.view.addEventListener('click', handleClick);
 }
 
-function touchLineCreateBody(model, app, widthPart, heightPart, widthArea, heightArea, areaColor, visibility) {
+function touchLineCreateBodyUp(model, app, widthPart, heightPart, widthArea, heightArea, areaColor, visibility) {
     const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
     const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
     const rectWidth = widthArea; // 사각형의 너비
     const rectHeight = heightArea; // 사각형의 높이
-    const touchArea = new PIXI.Graphics();
-    if(visibility===true){
-        touchArea.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
-    }
-    else{
-        touchArea.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+
+    // 기존 영역 제거
+    if (touchAreaBodyUp) {
+        app.stage.removeChild(touchAreaBodyUp);
+        touchAreaBodyUp.destroy();
     }
 
-    touchArea.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
-    touchArea.endFill();
-    app.stage.addChild(touchArea); // 터치 영역을 스테이지에 추가
+    touchAreaBodyUp = new PIXI.Graphics();
+    if (visibility === true) {
+        touchAreaBodyUp.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    } else {
+        touchAreaBodyUp.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+    }
+
+    touchAreaBodyUp.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
+    touchAreaBodyUp.endFill();
+    app.stage.addChild(touchAreaBodyUp); // 터치 영역을 스테이지에 추가
 
     const handleClick = (event) => handleTouchEvent(event, app, targetX, targetY, null, rectWidth, rectHeight, model, 'body');
 
@@ -209,4 +226,44 @@ function touchLineCreateBody(model, app, widthPart, heightPart, widthArea, heigh
     app.view.removeEventListener('click', handleClick);
     // 새 이벤트 리스너 추가
     app.view.addEventListener('click', handleClick);
+}
+
+function touchLineCreateBodyDown(model, app, widthPart, heightPart, widthArea, heightArea, areaColor, visibility) {
+    const targetX = app.screen.width * widthPart; // 화면의 중앙 X 좌표
+    const targetY = app.screen.height * heightPart; // 화면의 중앙 Y 좌표
+    const rectWidth = widthArea; // 사각형의 너비
+    const rectHeight = heightArea; // 사각형의 높이
+
+    // 기존 영역 제거
+    if (touchAreaBodyDown) {
+        app.stage.removeChild(touchAreaBodyDown);
+        touchAreaBodyDown.destroy();
+    }
+
+    touchAreaBodyDown = new PIXI.Graphics();
+    if (visibility === true) {
+        touchAreaBodyDown.beginFill(areaColor, 0.5); // 반투명 컬러 채우기
+    } else {
+        touchAreaBodyDown.beginFill(areaColor, 0.0); // 반투명 컬러 채우기
+    }
+
+    touchAreaBodyDown.drawRect(targetX - rectWidth / 2, targetY - rectHeight / 2, rectWidth, rectHeight);
+    touchAreaBodyDown.endFill();
+    app.stage.addChild(touchAreaBodyDown); // 터치 영역을 스테이지에 추가
+
+    const handleClick = (event) => handleTouchEvent(event, app, targetX, targetY, null, rectWidth, rectHeight, model, 'body');
+
+    // 기존 이벤트 리스너 제거
+    app.view.removeEventListener('click', handleClick);
+    // 새 이벤트 리스너 추가
+    app.view.addEventListener('click', handleClick);
+}
+function deBugMode(debug) {
+    if (debug) {
+        document.getElementById("title").style.display = "block";
+        document.getElementById("control").style.display = "block"; // 체크박스 영역 표시
+    } else {
+        document.getElementById("title").style.display = "none";
+        document.getElementById("control").style.display = "none"; // 체크박스 영역 숨기기
+    }
 }

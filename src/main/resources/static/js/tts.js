@@ -4,6 +4,18 @@ document.getElementById('sendButton').addEventListener('click', function () {
         alert("Please enter text.");
         return;
     }
+    else if(text == "#debugOn"){
+        deBugMode(true);
+        document.getElementById('textInput').value = "";
+        return;
+    }
+    else if (text == "#debugOff"){
+        deBugMode(false);
+        document.getElementById('textInput').value = "";
+        return;
+    }
+
+    document.getElementById('textInput').value = "";
 
     fetch('http://localhost:3545/tts', {
         method: 'POST',
