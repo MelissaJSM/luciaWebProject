@@ -8,7 +8,7 @@
     left: 55%;
     transform: translateX(-55%);
 }
-#inputText{
+#textInput{
     position: relative;
     width: 80%;
     font-size: 30px;
@@ -45,4 +45,8 @@ footer p{
     font-weight: bold;
     color: white;
     -webkit-text-stroke: 1px black; /* WebKit 기반 브라우저용 테두리 */
+}
+
+#audioPlayer{
+    display: none;
 }

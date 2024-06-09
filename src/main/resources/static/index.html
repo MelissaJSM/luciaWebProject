@@ -11,6 +11,21 @@
     <link rel="stylesheet" type="text/css" href="css/live2dStyle.css">
     <link rel="stylesheet" type="text/css" href="css/Ui.css">
     <link rel="stylesheet" type="text/css" href="css/debug.css">
+    <script src="js/tts.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function (){
+            let Live2dModelingScript = document.createElement('script');
+            Live2dModelingScript.src = 'js/live2dModeling.js';
+            document.head.appendChild(Live2dModelingScript);
+
+            let ttsScript = document.createElement("script");
+            ttsScript.src = "js/tts.js";
+            document.head.appendChild(ttsScript);
+
+        }
+    </script>
+
 
 </head>
 <body>
@@ -34,7 +49,6 @@
         <!-- live2d 그리는 영역 -->
         <canvas id=canvas></canvas>
         <!--캔버스 보다 밑에있어야 동작한다. 실수좀 하지마라임마-->
-        <script src="js/live2dModeling.js"></script>
 
 
 
@@ -48,8 +62,12 @@
         <!--여기에다가 채팅기능이라던기 기능을 넣으면 좋지.-->
         <!-- 체크박스 영역-->
         <div id="TextLine">
-            <input type="text" id="inputText" placeholder="질문을 입력하세요"></input>
+            <input type="text" id="textInput" placeholder="질문을 입력하세요"></input>
             <button id="sendButton">전송</button>
+            <audio id="audioPlayer" controls></audio>
+
+
+
         </div>
 
         <div id="control"></div>
