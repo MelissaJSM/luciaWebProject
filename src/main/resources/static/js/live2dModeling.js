@@ -271,3 +271,13 @@ function deBugMode(debug) {
         document.getElementById("control").style.display = "none"; // 체크박스 영역 숨기기
     }
 }
+
+function TalkAndIdleMode(type) {
+    if(type){
+        model.motion("Taps"); // 기본 애니메이션 재생 // 파일 이슈일수도있다.
+    }
+    else{
+        model.motion("Idle"); // 기본 애니메이션 재생 // 파일 이슈일수도있다.
+    }
+
+}

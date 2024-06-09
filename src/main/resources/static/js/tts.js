@@ -40,8 +40,16 @@ function handleSendButtonClick(){
             var audioPlayer = document.getElementById('audioPlayer');
             audioPlayer.src = audioUrl;
             audioPlayer.play();
+            TalkAndIdleMode(true);
         })
         .catch(error => {
             console.error('Error:', error);
         });
+
+    // 오디오 재생 종료 이벤트 핸들러 추가
+    document.getElementById('audioPlayer').addEventListener('ended', function() {
+        console.log('Audio playback finished.');
+        // 여기에 재생 종료 후 실행할 코드를 추가합니다.
+        TalkAndIdleMode(false);
+    });
 }
