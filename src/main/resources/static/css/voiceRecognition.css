@@ -1,0 +1,23 @@
+#micButton {
+    background-color: #4CAF50; /* Green */
+    height: 100%;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 10px 0 0 10px;
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+#micButton:hover {
+    background-color: #45a049; /* 호버 시 배경 색상 변경 */
+}
+/* 이미지 혹은 아이콘에 클릭 할 경우 */
+#micButton:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

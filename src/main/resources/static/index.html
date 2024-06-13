@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="css/live2dStyle.css">
     <link rel="stylesheet" type="text/css" href="css/Ui.css">
     <link rel="stylesheet" type="text/css" href="css/debug.css">
+    <link rel="stylesheet" type="text/css" href="css/voiceRecognition.css">
     <script src="js/tts.js"></script>
+    <script src="js/voiceRecognition.js"></script>
 
     <script type="text/javascript">
         window.onload = function (){
@@ -25,36 +27,28 @@
 
         }
     </script>
-
-
 </head>
 <body>
 
 <header>
     <nav>
         <!--리스트를 넣으세요-->
-
     </nav>
 </header>
-
 
 <main>
     <section>
         <!--메인 제목 넣는 부분-->
-        <h1 id=title>디버그 활성화</h1>
+        <h1 id="title">디버그 활성화</h1>
     </section>
 
     <article>
         <!--메인 컨텐츠 넣는 부분-->
         <!-- live2d 그리는 영역 -->
-        <canvas id=canvas></canvas>
+        <canvas id="canvas"></canvas>
         <!--캔버스 보다 밑에있어야 동작한다. 실수좀 하지마라임마-->
-
-
-
         <!-- 헤드터치 -->
         <div id="headTouch"></div>
-
     </article>
 
     <aside>
@@ -62,14 +56,11 @@
         <!--여기에다가 채팅기능이라던기 기능을 넣으면 좋지.-->
         <!-- 체크박스 영역-->
         <div id="TextLine">
-            <input type="text" id="textInput" placeholder="질문을 입력하세요"></input>
+            <button id="micButton">🎤</button>
+            <input type="text" id="textInput" placeholder="질문을 입력하세요">
             <button id="sendButton">전송</button>
             <audio id="audioPlayer" controls></audio>
-
-
-
         </div>
-
         <div id="control"></div>
     </aside>
 </main>

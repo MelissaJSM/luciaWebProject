@@ -50,6 +50,7 @@ function handleSendButtonClick(){
     document.getElementById('audioPlayer').addEventListener('ended', function() {
         console.log('Audio playback finished.');
         // 여기에 재생 종료 후 실행할 코드를 추가합니다.
+        document.getElementById("textInput").placeholder = "질문을 입력하세요.";
         TalkAndIdleMode(false);
     });
 }

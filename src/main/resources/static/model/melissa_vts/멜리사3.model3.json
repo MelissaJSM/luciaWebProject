@@ -13,10 +13,10 @@
 		],
 		"Motions": {
 			"Idle": [
-				{ "File": "motion/Lucia_m01.motion3.json", "FadeInTime": 1.0, "FadeOutTime": 1.0 }
+				{ "File": "motion/Lucia_idle.motion3.json", "FadeInTime": 1.0, "FadeOutTime": 1.0 }
 			],
 			"Tap": [
-				{ "File": "motion/Lucia_talking.motion3.json", "FadeInTime": 0.5, "FadeOutTime": 0.5 }
+				{ "File": "motion/Lucia_m01.motion3.json", "FadeInTime": 0.5, "FadeOutTime": 0.5 }
 			],
 			"Taps": [
 				{ "File": "motion/Lucia_talking.motion3.json", "FadeInTime": 0.5, "FadeOutTime": 0.5 }
